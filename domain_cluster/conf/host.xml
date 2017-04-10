@@ -2,6 +2,13 @@
 
 <host name="node1" xmlns="urn:jboss:domain:1.7">
 
+  <system-properties>
+      <property name="live.messaging.id" value="0"/>
+      <property name="backup.messaging.id" value="1"/>
+      <property name="live.messaging.backup.group" value="backup-group-0"/>
+      <property name="backup.messaging.backup.group" value="backup-group-1"/>
+  </system-properties>
+
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
@@ -97,7 +104,7 @@
                  the default socket-group declared in the server-group -->
             <!-- <socket-bindings port-offset="150"/>
         </server> -->
-        <server name="server-two" group="other-server-group" auto-start="false">
+        <server name="server-two" group="other-server-group" auto-start="true">
             <!-- server-three avoids port conflicts by incrementing the ports in
                  the default socket-group declared in the server-group -->
             <socket-bindings port-offset="400"/>
